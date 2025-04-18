@@ -25,7 +25,13 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                echo 'Deployment Step - can enhance later!'
+                echo 'Creating JAR file...'
+                sh 'jar cfv build/PizzaBillApp.jar -C build .'
+                
+                echo 'Running the JAR file...'
+                sh 'nohup java -jar build/PizzaBillApp.jar > output.log 2>&1 &'
+                
+                echo 'Deployment complete! Check output.log for details.'
             }
         }
     }
