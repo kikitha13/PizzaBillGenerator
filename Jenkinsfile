@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git 'https://github.com/kikitha13/PizzaBillGenerator.git'  // your repo URL
+                git branch: 'main', url: 'https://github.com/kikitha13/PizzaBillGenerator.git'
             }
         }
 
@@ -30,3 +30,4 @@ pipeline {
         }
     }
 }
+
